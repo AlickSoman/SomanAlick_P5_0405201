@@ -13,7 +13,7 @@ header{
     flex-direction: column;
     height: 180px;
     padding-bottom:10px ;
-    background-color:rgb(255, 255, 255) ;
+    background-image:rgb(255, 255, 255) ;
 }
 header h1{
     justify-content: center;
@@ -52,10 +52,38 @@ nav ul li a{
 //Section conteneur//
 
 .conteneur{
-    height: 500px;
-    width: 100%;
+    
+    width: 80%;
     padding:20px;
+    margin: 10%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    
 }
+.product img {
+    width: 400px;
+    box-shadow: rgb(212, 212, 212) 12px 12px 1px 2px;
+    
+}
+
+.product img:hover {
+    box-shadow: rgb(212, 212, 212) -12px -12px 1px 2px;
+    transition: margin-right 2s ease-in-out .5s;
+    -webkit-transition: margin-right 2s ease-in-out .5s;
+    -moz-transition: margin-right 2s ease-in-out .5s;
+    -ms-transition: margin-right 2s ease-in-out .5s;
+    -o-transition: margin-right 2s ease-in-out .5s;
+}
+
+h2{
+    padding:20px 0px 20px;
+    text-decoration: underline red;
+}
+
 
 // section footer //
 footer{

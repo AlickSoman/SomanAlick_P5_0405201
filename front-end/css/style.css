@@ -17,7 +17,7 @@ header {
           flex-direction: column;
   height: 180px;
   padding-bottom: 10px;
-  background-color: white;
+  background-image: white;
 }
 
 header h1 {
@@ -75,9 +75,48 @@ nav ul li a {
 }
 
 .conteneur {
-  height: 500px;
-  width: 100%;
+  width: 80%;
   padding: 20px;
+  margin: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.product img {
+  width: 400px;
+  -webkit-box-shadow: #d4d4d4 12px 12px 1px 2px;
+          box-shadow: #d4d4d4 12px 12px 1px 2px;
+}
+
+.product img:hover {
+  -webkit-box-shadow: #d4d4d4 -12px -12px 1px 2px;
+          box-shadow: #d4d4d4 -12px -12px 1px 2px;
+  transition: margin-right 2s ease-in-out .5s;
+  -webkit-transition: margin-right 2s ease-in-out .5s;
+  -moz-transition: margin-right 2s ease-in-out .5s;
+  -ms-transition: margin-right 2s ease-in-out .5s;
+  -o-transition: margin-right 2s ease-in-out .5s;
+}
+
+h2 {
+  padding: 20px 0px 20px;
+  -webkit-text-decoration: underline red;
+          text-decoration: underline red;
 }
 
 footer {
