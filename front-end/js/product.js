@@ -31,6 +31,8 @@ function getProductFromUrl() {
 function displayArticle(article){
     let sectionCatalogue = document.getElementById("article"); //on capture la section "id" catalogue
     console.log(article);
+    //let articleTag = document.createElement('article'); //creation d'une balise <article>
+    //articleTag.setAttribute('class', 'product'); // ajout d'une classe à la balise article
 
 
     let articleTag = document.createElement('article'); //creation d'une balise <article>
@@ -49,7 +51,7 @@ function displayArticle(article){
 
     //ajout de la description-------------------------------------------------------
     let articleDescription = ducument.createElement('p');
-    articleDescription.textContent = article.description;
+    articleDescription.textContent = article.description ;
     articleTag.appendChild(articleDescription);
     console.log('Description')
 
@@ -59,7 +61,7 @@ function displayArticle(article){
     let articlePrice = document.createElement ('h3');
     
     //affichage du prix
-    articlePrice.textContent = article.price;
+    articlePrice.textContent = article.price ;
 
     //conversion du prix en euro
     console.log(new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(article.price /100));
