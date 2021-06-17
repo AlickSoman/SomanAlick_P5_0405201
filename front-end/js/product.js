@@ -55,7 +55,7 @@ function displayArticle(article){
     articleTag.appendChild(articleDescription);
     console.log('Description')
 
-    //ajout de la prix------------------------------------------------------------- 
+    //ajout de le prix------------------------------------------------------------- 
     
     //creation d'une balise h3 pour l'affichage du prix
     let articlePrice = document.createElement ('h3');
