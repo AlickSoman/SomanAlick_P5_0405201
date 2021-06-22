@@ -50,7 +50,7 @@ function displayArticle(article){
 
 
     //ajout de la description-------------------------------------------------------
-    let articleDescription = ducument.createElement('p');
+    let articleDescription = document.createElement('p');
     articleDescription.textContent = article.description ;
     articleTag.appendChild(articleDescription);
     console.log('Description')
@@ -63,6 +63,8 @@ function displayArticle(article){
     //affichage du prix
     articlePrice.textContent = article.price ;
 
+ 
+
     //conversion du prix en euro
     console.log(new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(article.price /100));
    
@@ -71,10 +73,56 @@ function displayArticle(article){
     
     //affichage du prix dans article
     articleTag.appendChild(articlePrice);
-    
-//Ici je veux injecter mon article selectionner dans InerHTML
+
+   //affichage des options
+   createElement('select')
+   for (let option in article.lenses) {
+       createElement('option');
+   
+  }
+
+
+  
+
+    //ici ajout du bouton "ajouter au panier"
+    let boutonAjouter = document.getElementById("btn_envoyer");
+    console.log(boutonAjouter);
+    boutonAjouter.addEventListener("click",function(){
+        //ajouter ici les fonction néssessaire à la function 
+        localStorage.setItem('ajouterAuPanier', 'btn_envoiyer');
+
+        //--déclaration de la variable "produitEnregistrerDansLocalStorage" 
+        //dans lequelle on met la key et les values qui sont dans le local storage
+        let id_article = article._id;
+        let produitEnregistrerDansLocalStorage = JSON.parse(localStorage.getItem('panier')); 
+        //JSON.parse c'est pour convertir les données au format JSON qui sont dans le local storage en objet Javascript
+        console.log(produitEnregistrerDansLocalStorage);
+        
+        if(produitEnregistrerDansLocalStorage){
+            let qty_article = parseInt (produitEnregistrerDansLocalStorage[id_article]); 
+            qty_article +=1;
+            // ajouter la nouvelle qty
+            produitEnregistrerDansLocalStorage[id_article]  = qty_article;
+            localStorage.setItem('panier', JSON.stringify(produitEnregistrerDansLocalStorage));
+            console.log(produitEnregistrerDansLocalStorage);
+
+        }
+        else{
+            
+            console.log(id_article);
+            let produitEnregistrerDansLocalStorage = {};
+            produitEnregistrerDansLocalStorage[id_article]  = '1';
+            localStorage.setItem('panier', JSON.stringify(produitEnregistrerDansLocalStorage));
+            console.log(produitEnregistrerDansLocalStorage);
+        }
+
+
+    });
+
 
  
+
+
 
     //ajout de l'enseMble de l'article dans la section
     sectionCatalogue.appendChild(articleTag); // ajout de la balise article comme enfant de la balise section Catalogue

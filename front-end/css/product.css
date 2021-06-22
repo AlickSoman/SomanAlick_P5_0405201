@@ -7,7 +7,7 @@
     font-family: Avenir, sans-serif;
 }
 
-.Detaille_Produit {
+.conteneur {
     margin: 20px;
     display: block;
     justify-content: center;
@@ -18,17 +18,15 @@ form{
 }
 
 img{
-    width: 200px;
+    width: 500px;
+   margin: 20px 20px;
 }
 #btn_envoyer{
     margin: 20px;
 }
-.Detaille_Produit ul li {
-    text-decoration: none;
-}
 
 .conteneur{
   margin: 50px 20px;
-  height: 100vh;
+  height: auto;
 }
 
