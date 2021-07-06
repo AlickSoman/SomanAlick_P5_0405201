@@ -1,6 +1,6 @@
 (async function(){ // fonction principale
     //const articles = await getArticles()
-    var idProduct = getProductFromUrl(); // Récup l'id par l'url
+    var idProduct = getProductFromUrl(); // Récupération de l'id par l'url
     var url = "http://localhost:3000/api/cameras/" + idProduct; //+ id pour récupé un article bien specifique
     //recuperer les articles
     let article = await getArticle(url);
@@ -53,7 +53,7 @@ function displayArticle(article){
     let articleDescription = document.createElement('p');
     articleDescription.textContent = article.description ;
     articleTag.appendChild(articleDescription);
-    console.log('Description')
+    console.log('Description');
 
     //ajout de le prix------------------------------------------------------------- 
     
@@ -74,15 +74,23 @@ function displayArticle(article){
     //affichage du prix dans article
     articleTag.appendChild(articlePrice);
 
-   //affichage des options
-   createElement('select')
-   for (let option in article.lenses) {
-       createElement('option');
-   
+//affichage des options -------------------------------------
+
+
+   let lentilles = document.createElement("select"); //creation d'une balise selection pour l'affichage des option
+    articleTag.appendChild(lentilles);
+
+  for (i = 0; i < article.lenses.length; i++) {
+   let option = document.createElement("option");
+   lentilles.appendChild(option);
+   option.textContent = article.lenses[i];
+   option.value = article.lenses[i];
+    console.log(option)
   }
 
+// Fin affichage des option 
 
-  
+
 
     //ici ajout du bouton "ajouter au panier"
     let boutonAjouter = document.getElementById("btn_envoyer");
@@ -111,9 +119,9 @@ function displayArticle(article){
             
             console.log(id_article);
             let produitEnregistrerDansLocalStorage = {};
-            produitEnregistrerDansLocalStorage[id_article]  = '1';
+            produitEnregistrerDansLocalStorage[id_article]  = +1;
             localStorage.setItem('panier', JSON.stringify(produitEnregistrerDansLocalStorage));
-            console.log(produitEnregistrerDansLocalStorage);
+        //     console.log(produitEnregistrerDansLocalStorage);
         }
 
 

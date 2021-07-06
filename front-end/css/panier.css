@@ -1,0 +1,49 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    font-size: 16px;
+    font-family: 'roboto';
+    height: auto;
+}
+h2{
+    text-transform: uppercase;
+    text-decoration: underline;
+    
+}
+
+#container-produits-panier{
+    grid-area: "container-produits-panier";
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 80vw;
+    border: 2px solid black;
+}
+.container-recapitulatif{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 5rem;
+
+}
+.pair {
+    background-color: rgb(224, 218, 224);
+}
+.impair {
+    background-color: rgb(177, 97, 177);
+}
+.container-montant-total{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(107, 61, 107);
+
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 5rem;
+
+}
