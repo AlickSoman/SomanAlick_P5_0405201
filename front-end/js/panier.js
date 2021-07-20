@@ -65,7 +65,7 @@ else{
                
                 <div> Quantité : ${qty}</div>
                 <div> prix : ${totalArticle} €</div>
-                <div id="sup-1-IdProduit"> <img src="img/cart-plus-solid.svg" alt="image"></div>
+                <div id="sup-1-IdProduit"> <img src="../img/cart-plus-solid.svg" alt="image"></div>
                 
             </div>
             `;
@@ -92,6 +92,8 @@ else{
 
 
             <form action="/ma-page-de-traitement" method="post">
+
+            <h4>INFORMATIONS CLIENT</h4>
             <div>
                 <label for="firstName">Nom :</label>
                 <input type="text" id="firstName" name="user_firstName" required>
@@ -107,23 +109,13 @@ else{
             </div>
     
             <div>
-                <label for="adresse">Nom de rue :</label>
+                <label for="adresse">Adresse :</label>
                 <input type="text" id="adresse" name="user_adresse" required>
-            </div>
-    
-            <div>
-                <label for="adresseNumb">N° de rue :</label>
-                <input type="number" id="adresseNumb" name="user_adresseNumb" required>
             </div>
     
             <div>
                 <label for="city">Ville :</label>
                 <input type="text" id="city" name="user_city" required>
-            </div>
-    
-            <div>
-                <label for="codeP">Code postal :</label>
-                <input type="number" id="codeP" name="user_codeP" required>
             </div>
     
             <button id="btn_commande" type="submit">Envoyer ma Commande</button>
@@ -139,38 +131,93 @@ else{
 
             // ---------------------addEentListner-------------------------
              btnEnvoyerLaCommande.addEventListener("click",(e) => {
-                // e.preventDefault(); // annule le conportement par défaut
+                e.preventDefault(); // annule le conportement par défaut
 
-
-
-             //enregistrement du formulaire dans le local sorage
-             localStorage.setItem('fistName', document.querySelector("#firstName").value);
-             localStorage.setItem('lastName', document.querySelector("#lastName").value);
-             localStorage.setItem('email', document.querySelector("#email").value);
-             localStorage.setItem('adresse', document.querySelector("#adresse").value);
-             localStorage.setItem('adresseNumb', document.querySelector("#adresseNumb").value);
-             localStorage.setItem('city', document.querySelector("#city").value);
-             localStorage.setItem('codeP', document.querySelector("#codeP").value);
-
-
-
-            
-            // console.log("Element du formulaire :" ('Nom', document.querySelector("#firstname").value))
-
-            //Mettre les values et produits du pannier dans un objet pour l'envoi vers le serveur
-             const formulaire = {
-                  firstName: localStorage.setItem('firstName'),
-                  lastName: localStorage.setItem('lastName'),
-                  email: localStorage.setItem('email'),
-                  adresse: localStorage.setItem('adresse'),
-                  adresseNumb:localStorage.setItem('adresseNumb'),
-                  city: localStorage.setItem('city'),
-                  codeP: localStorage.setItem('codeP'),
+            //récupération des valeurs du formulaire
+             const formulaireValues = {
+                  firstName: document.querySelector("#firstName").value,
+                  lastName: document.querySelector("#lastName").value,
+                  email: document.querySelector("#email").value,
+                  adresse: document.querySelector("#adresse").value,
+                  city: document.querySelector("#city").value,
+                  
+                  
              }
-             console.log(formulaire)
 
+            // mettre les valeurs du formulaires dans le localStorage
+            localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
+
+            console.log('formulaireValues') 
+            console.log(formulaireValues)
+
+            //  les elements a envoyer au serveur
+             const aEnvoyerAuServeur = {
+                 produitEnregistrerDansLocalStorage,
+                 formulaireValues
+             }
+
+              //  Envoi de l'objet "aEnvoyerAuServeur" vers le serveur
+            const promiseCommande = fetch("​http://localhost:3000/api/cameras/users", {
+             method:"POST",
+             body: JSON.stringify(aEnvoyerAuServeur),
+             headers:{
+                 "content-Type" : "application/jason",
+             },
+            });
+            console.log("promiseCommande");
+            console.log(promiseCommande);
+
+            // voir le resulta de promise dans la console
+            promiseCommande.then(async(response)=>{
+                try{
+                    console.log("response");
+                    console.log(response);
+
+                    const contenu = await response.json();
+                    console.log("contenu");
+                    console.log(contenu);
+
+                }catch(e){
+                    console.log(e);
+                }
+            });
+
+            // controle de l'envoi sur le serveur Metod Get
+            const promiseCommandeCT = fetch("​http://localhost:3000/api/cameras/users")
+            promiseCommandeCT.then(async (response) =>{
+                try{
+                    console.log("promiseCommandeCT")
+                    console.log(promiseCommandeCT)
+                    const donneeSurServeur =await response.json();
+                    console.log("donneeSurServeur")
+                    console.log(donneeSurServeur)
+
+                }catch(e){
+                    console.log(e)
+                }
+            })
+
+            // ----------------Ici la fin de l'écoute du btnEnvoyerLaCommande------------------------
              });
-              
+
+           
+
+            // //   garder le formulaire remplie
+            // const dataLocalStorage = localStorage.getItem("formulairValues");
+            // // convertion des chaine de caractère en objet javascript avec JSON.parse
+            // const dataLocalStorageObjet = JSON.parse(dataLocalStorage);
+
+            // // Mettre les values du formulaire qui son dans localStorage
+            // // en souvenir dans le formulaire
+            // document.querySelector("#firstName").value = dataLocalStorageObjet.firstName;
+            // document.querySelector("#lasttName").value = dataLocalStorageObjet.lastName;
+            // document.querySelector("email").value = dataLocalStorageObjet.email;
+            // document.querySelector("#adresse").value = dataLocalStorageObjet.adresse;
+            // document.querySelector("#city").value = dataLocalStorageObjet.city;
+            
+
+           
+            
 }
 
 
