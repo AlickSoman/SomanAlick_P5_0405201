@@ -58,12 +58,53 @@ h2{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(218, 218, 218);
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 5rem; 
 }
 
+/* Gestion du panier supOuAjout */
+
+#supOuAjout{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 10%;
+
+}
+#supOuAjout span{
+  
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5px;
+  font-size: 28px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid beige;
+  background-color: rgba(211, 209, 209, 0.432);
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+
+.panierFinal span{
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  width: 10%;
+  height: 30px;
+  border: 1px solid rgb(179, 179, 179);
+  background-color: rgba(255, 255, 255, 0.616);
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
 
 /*formulaire de comannde ------------------------------*/
 

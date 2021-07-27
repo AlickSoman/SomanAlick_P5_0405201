@@ -119,6 +119,16 @@ h2 {
           text-decoration: underline red;
 }
 
+h3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
 footer {
   width: 100%;
   display: -webkit-box;

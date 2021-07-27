@@ -83,7 +83,11 @@ h2{
     padding:20px 0px 20px;
     text-decoration: underline red;
 }
-
+h3{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 
 // section footer //
 footer{
