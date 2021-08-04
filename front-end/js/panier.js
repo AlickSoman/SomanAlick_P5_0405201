@@ -92,30 +92,30 @@ else{
             <div>
                 <label for="firstName">Nom :</label>
                 <input type="text" id="firstName" name="user_firstName" required>
-                 <span id="aRemplir" class="aRemplirStyle"></span>
+                 <span id="alertNom" class="aRemplirStyle"></span>
             </div>
             <div>
                 <label for="lastName">Prénom :</label>
                 <input type="text" id="lastName" name="user_lastName" required>
-                <span id="aRemplir" class="aRemplirStyle"></span>
+                <span id="alertPrenom" class="aRemplirStyle"></span>
             </div>
 
             <div>
                 <label for="mail">Email :</label>
                 <input type="email" id="email" name="user_email" required>
-                <span id="aRemplir" class="aRemplirStyle"></span>
+                <span id="alertEmail" class="aRemplirStyle"></span>
             </div>
     
             <div>
                 <label for="adresse">Adresse :</label>
                 <input type="text" id="adresse" name="user_adresse" required>
-                <span id="aRemplir" class="aRemplirStyle"></span>
+                <span id="alertAdresse" class="aRemplirStyle"></span>
             </div>
     
             <div>
                 <label for="city">Ville :</label>
                 <input type="text" id="city" name="user_city" required>
-                <span id="aRemplir" class="aRemplirStyle"></span>
+                <span id="alertVille" class="aRemplirStyle"></span>
             </div>
     
             <button id="btn_commande" type="submit">Envoyer ma Commande</button>
@@ -128,7 +128,7 @@ else{
              var btnEnvoyerLaCommande = document.querySelector("#btn_commande")
             //  console.log(btnEnvoyerLaCommande)
 
-            // ---------------------addEentListner-------------------------
+            // ---------------------addEentListner btn confirmation de la commande-------------------------
              btnEnvoyerLaCommande.addEventListener("click",(e) => {
                 e.preventDefault(); // annule le conportement par défaut
 
@@ -183,7 +183,7 @@ else{
             // création du fonction contenant les nom, prenom, ville
             //ici une expression de fonction
             const regExNomPrenomVille = (value ) => {
-                return /^[A-Za-z]{3,20}$/.test(value);
+                return /^[A-Za-z\-']{3,20}$/.test(value);
             };
             const regExAdresse = (value ) => {
                 return /^[A-Za-z0-9\s]{5,50}$/.test(value);
@@ -210,11 +210,11 @@ else{
                 // controle de la validité du nom
                 const firstNameCtOk = formulaireValues.firstName;
                 if (regExNomPrenomVille(firstNameCtOk)) {
-                    infosChampBienRempli("aRemplir");
+                    infosChampBienRempli("alertNom");
                     
                     return true;
                 } else{
-                    infosChampManquant("aRemplir");
+                    infosChampManquant("alertNom");
                     return false;
                 }
             };
@@ -223,10 +223,10 @@ else{
                 // controle de la validité du prénom
                 const lastNameCtOk = formulaireValues.lastName;
                 if (regExNomPrenomVille(lastNameCtOk)){
-                    infosChampBienRempli("aRemplir");
+                    infosChampBienRempli("alertPrenom");
                     return true;
                 } else{
-                    infosChampManquant("aRemplir");
+                    infosChampManquant("alertPrenom");
                     return false;
                 }
             };
@@ -234,10 +234,11 @@ else{
                 // controle de la validité du ville
                 const cityCtOk = formulaireValues.city;
                 if (regExNomPrenomVille(cityCtOk)){
-                    infosChampBienRempli("aRemplir");
+                    infosChampBienRempli("alertVille");
                     return true;
                 } else{
-                    infosChampManquant("aRemplir");
+                    infosChampManquant("alertVille");
+                 alert("c'est qui fait des betises")
                     return false;
                 }
             };
@@ -245,10 +246,10 @@ else{
             function adresseCt(){
                 const adresseCtOk = formulaireValues.adresse;
                 if(regExAdresse (adresseCtOk)){
-                    infosChampBienRempli("aRemplir");
+                    infosChampBienRempli("alertAdresse");
                     return true
                 }else{
-                    infosChampManquant("aRemplir");
+                    infosChampManquant("alertAdresse");
                     return false
                 }
             };
@@ -256,10 +257,10 @@ else{
             function emailCt(){
                 const emailCtOk = formulaireValues.email;
                 if(regExEmail (emailCtOk)){
-                    infosChampBienRempli("aRemplir");
+                    infosChampBienRempli("alertEmail");
                     return true
                 }else{
-                    infosChampManquant("aRemplir");
+                    infosChampManquant("alertEmail");
                     return false
                 }
             };

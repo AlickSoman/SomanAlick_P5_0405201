@@ -126,6 +126,7 @@ function displayArticle(article){
             localStorage.setItem('panier', JSON.stringify(produitEnregistrerDansLocalStorage));
             console.log(produitEnregistrerDansLocalStorage);
 
+            
             }
 
         }
@@ -138,6 +139,8 @@ function displayArticle(article){
             
         }
 
+        // Confirmation d'ajout au panier
+        confirm("Le produit à bien été ajouter au panier");
 
     });
 

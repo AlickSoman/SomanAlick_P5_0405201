@@ -94,8 +94,8 @@ h2{
 .panierFinal span{
   display: flex;
   justify-content: center;
-  padding-top: 5px;
-  width: 10%;
+  padding-top: 10px;
+  width: 15%;
   height: 30px;
   border: 1px solid rgb(179, 179, 179);
   background-color: rgba(255, 255, 255, 0.616);
