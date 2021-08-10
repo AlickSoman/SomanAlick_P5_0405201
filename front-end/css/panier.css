@@ -1,10 +1,12 @@
 body{
-    margin: 0%;
-    padding: 0%;
-    font-size: 16px;
-    font-family: 'roboto';
-    height: auto;
+  padding: 0%;
+  margin: 0;
+  font-size: 18px ;
+  overflow-x: hidden;
+  background-color: rgb(238, 221, 238);
+  font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto, Oxygen', 'Ubuntu, Cantarell', 'Open Sans', 'Helvetica Neue', 'sans-serif';
 }
+
 h2{
     text-transform: uppercase;
     text-decoration: underline;
@@ -17,7 +19,9 @@ h2{
     justify-content: center;
     flex-direction: column;
     min-width: 80vw;
-    border: 2px solid rgb(173, 78, 182);
+    border: 2px solid rgb(199, 83, 199);
+    padding: 20px;
+    
 }
 .container-recapitulatif{
     display: flex;
@@ -38,16 +42,16 @@ h2{
   text-align: center;
 }
 .pair {
-    background-color: rgb(224, 218, 224);
+    background-color: rgb(250, 209, 250);
 }
 .impair {
-    background-color: rgb(177, 97, 177);
+    background-color:rgb(199, 83, 199);
 }
 .container-montant-total{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(107, 61, 107);
+    background-color: rgb(255, 255, 255);
 
     flex-grow: 1;
     flex-shrink: 1;
@@ -58,7 +62,7 @@ h2{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: rgb(218, 218, 218);
+    background-color: rgb(255, 255, 255);
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 5rem; 
@@ -153,12 +157,16 @@ form {
   }
   
   #btn_commande {
-    display: inline;
-    justify-content: center;
-    width: 70%;
-    text-align: center; 
-    margin: 20px 0 20px 0;
+    border-radius: 30px;
+    border:none ;
+    background-color: rgb(199, 83, 199);
+    color: rgb(255, 255, 255);
+    height: 50px;
+    width: 100% ;
+    margin: 20px 0px 20px 0px;
+    font-weight: 600;
+    font-size: 18px;
   }
   .aRemplirStyle{
-    color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
   }

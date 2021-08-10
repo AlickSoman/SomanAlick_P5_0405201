@@ -36,6 +36,7 @@ function displayArticles(article){
     articleTag.appendChild(articleTitle); //ajout du h2 comme balise enfant de la balise article
     //ajout de l'iMage
     
+    
     let articleImg = document.createElement ('img');
     articleImg.src=article.imageUrl; // creation d'une balise href
     articleTag.appendChild(articleImg); //
@@ -44,8 +45,6 @@ function displayArticles(article){
     link.href = 'product.html?id=' + article._id;
     link.appendChild(articleImg);
     articleTag.appendChild(link);
-
-    //ajout de la description
 
 
     //ajout de la prix------------------------------------------------------------- 
@@ -64,13 +63,6 @@ function displayArticles(article){
     
     //affichage du prix dans article
     articleTag.appendChild(articlePrice);
-    
-//Ici je veux rendre mon image cliquable
-
-
- 
-    
-
 
     //ajout de l'enseMble de l'article dans la section
     sectionCatalogue.appendChild(articleTag); // ajout de la balise article comme enfant de la balise section Catalogue

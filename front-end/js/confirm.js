@@ -8,8 +8,12 @@
 
       let  structureCommande = `
             <div class="container-recapitulatif">
-            Merci pour votre commande n°${objectsOrder['orderId']} ${objectsOrder['contact']['firstName']} ${objectsOrder['contact']['lastName']}
-                </div>
+           Bonjour, ${objectsOrder['contact']['firstName']} ${objectsOrder['contact']['lastName']}
+            </div>
+            <div>Nous avons bien pris en compte votre commande</div>
+            <div class="container-recapitulatif">
+            Voici votre numéro de commande : ${objectsOrder['orderId']} 
+            </div>
             `;
 
 selectionElements.innerHTML=structureCommande;
