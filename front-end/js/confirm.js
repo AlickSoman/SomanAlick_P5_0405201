@@ -1,10 +1,10 @@
-(async function(){ // fonction principale
+(async function(){ // fonction principale async (async attend que le code soit executer avent d'executer la fonction en async)// fonction principale
     
- var order = localStorage.getItem("orderConfirmed");
- var objectsOrder = JSON.parse(order);
+ var order = localStorage.getItem("orderConfirmed"); //récupération du order de la commande dans le localstorage
+ var objectsOrder = JSON.parse(order); //Transformer le order en chaines de caractères
  console.log(objectsOrder);
 
- const selectionElements = document.querySelector("#confirmCommande");
+ const selectionElements = document.querySelector("#confirmCommande"); // Selectionne la section dans la affiche le contenu
 
       let  structureCommande = `
             <div class="container-recapitulatif">
@@ -14,8 +14,8 @@
             <div class="container-recapitulatif">
             Voici votre numéro de commande : ${objectsOrder['orderId']} 
             </div>
-            `;
+            `; //construction de la structure htm et assigniation des valeurs a afficher sur la page
 
-selectionElements.innerHTML=structureCommande;
+selectionElements.innerHTML=structureCommande; // Injection du html dans la section
  
 })()
