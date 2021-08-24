@@ -30,6 +30,8 @@ header {
     display: flex;
     justify-content: center;
     position: fixed;
+    padding-top:9px ;
+    padding-bottom:9px ;
     width: 100%;
     background-color: rgb(255, 255, 255);
     border-bottom: 2px solid rgb(248, 197, 248);
